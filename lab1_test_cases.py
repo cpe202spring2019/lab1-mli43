@@ -29,10 +29,15 @@ class TestLab1(unittest.TestCase):
 
 
 
-"""    def test_reverse_rec(self):
+    def test_reverse_rec(self):
         self.assertEqual(reverse_rec([1,2,3]),[3,2,1])
+        with self.assertRaises(ValueError):
+           self.assertEqual(reverse_rec(None))
+        self.assertEqual(reverse_rec([]), [])
+        self.assertEqual(reverse_rec([1]), [1])
 
-    def test_bin_search(self):
+
+    """    def test_bin_search(self):
         list_val =[0,1,2,3,4,7,8,9,10]
         low = 0
         high = len(list_val)-1
