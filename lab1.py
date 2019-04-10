@@ -39,12 +39,13 @@ def bin_search(target, low, high, int_list):  # must use recursion
        return (low + high) // 2
    elif low == high:
        return None
+   else:
 
-   if target > int_list[(low + high) // 2]:
-       low = (low + high) // 2 + 1
-   elif target < int_list[(low + high) // 2]:
-       high = (low + high) // 2 - 1
+      if target > int_list[(low + high) // 2]:
+          low = (low + high) // 2 + 1
+      elif target < int_list[(low + high) // 2]:
+          high = (low + high) // 2 - 1
    #if low == high - 1:
        #return None
-   return bin_search(target, low, high, int_list)
+      return bin_search(target, low, high, int_list)
 
