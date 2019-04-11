@@ -15,10 +15,14 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(max_list_iter(tlist), 1)
         tlist = [3, 2, 5]
         self.assertEqual(max_list_iter(tlist), 5)
+        tlist = [5, 2, 3]
+        self.assertEqual(max_list_iter(tlist), 5)
         tlist = [2.5, 3.7, 0]
         self.assertAlmostEqual(max_list_iter(tlist), 3.7)
         tlist = [4, 4]
         self.assertEqual(max_list_iter(tlist), 4)
+        tlist = [3, 1, 3]
+        self.assertEqual(max_list_iter(tlist), 3)
 
 
 
@@ -28,7 +32,7 @@ class TestLab1(unittest.TestCase):
            self.assertEqual(reverse_rec(None))
         self.assertEqual(reverse_rec([]), [])
         self.assertEqual(reverse_rec([1]), [1])
-        self.assertEqual(reverse_rec([4, 3, 2.5]), [2.5, 3, 4])
+        self.assertEqual(reverse_rec([4, 3]), [3, 4])
 
 
 
@@ -40,9 +44,13 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(100, 0, len(list_val)-1, list_val), None)
         self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), 0)
         self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), len(list_val) - 1)
-        self.assertEqual(bin_search(10, 0, 0, []), None)
-        self.assertEqual(bin_search(10, 0, 0, [3]), None)
-        self.assertEqual(bin_search(3, 0, 0, [3]), 0)
+        self.assertEqual(bin_search(9, 0, len(list_val)-1, list_val), 7)
+        list_val =[]
+        self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), None)
+        list_val =[3]
+        self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), None)
+        self.assertEqual(bin_search(3, 0, len(list_val)-1, list_val), 0)
+        list_val =[0,1,2,3,4,7,8,9,10]
         with self.assertRaises(ValueError):
             self.assertEqual(bin_search(0, 0, 7, None))
 
